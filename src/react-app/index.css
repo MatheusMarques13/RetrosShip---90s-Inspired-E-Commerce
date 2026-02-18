@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 90s Infomercial / Windows 95 inspired theme */
+    --background: 210 100% 55%;
+    --foreground: 0 0% 10%;
+    
+    /* Section colors */
+    --header-bg: 330 80% 65%;
+    --footer-bg: 0 70% 50%;
+    --card: 0 0% 75%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 75%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 50 90% 50%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 65%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 50 90% 50%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 40%;
+    --input: 0 0% 85%;
+    --ring: 50 90% 50%;
+    --radius: 0px;
+    
+    /* Custom 90s palette */
+    --teal-bg: 210 100% 55%;
+    --gray-panel: 0 0% 75%;
+    --gray-dark: 0 0% 55%;
+    --gray-darker: 0 0% 40%;
+    --gray-light: 0 0% 85%;
+    --gold-accent: 50 90% 50%;
+    --retro-black: 0 0% 15%;
+    
+    /* Chart colors */
+    --chart-1: 50 90% 50%;
+    --chart-2: 182 40% 45%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 0 70% 50%;
+    --chart-5: 200 60% 50%;
+    
+    --sidebar: 0 0% 75%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 50 90% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 65%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 40%;
+    --sidebar-ring: 50 90% 50%;
+  }
+
+  .dark {
+    --background: 210 60% 25%;
+    --foreground: 0 0% 90%;
+    
+    /* Section colors - dark mode */
+    --header-bg: 330 50% 35%;
+    --footer-bg: 0 50% 30%;
+    --card: 200 15% 20%;
+    --card-foreground: 0 0% 90%;
+    --popover: 200 15% 20%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 50 90% 55%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 200 15% 30%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 200 15% 25%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 50 90% 55%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 15% 35%;
+    --input: 200 15% 25%;
+    --ring: 50 90% 55%;
+    
+    /* Custom 90s palette - dark mode */
+    --teal-bg: 210 60% 25%;
+    --gray-panel: 200 15% 20%;
+    --gray-dark: 200 15% 30%;
+    --gray-darker: 200 15% 15%;
+    --gray-light: 200 15% 35%;
+    --gold-accent: 50 90% 55%;
+    --retro-black: 0 0% 5%;
+    
+    --chart-1: 50 90% 55%;
+    --chart-2: 182 40% 40%;
+    --chart-3: 200 15% 40%;
+    --chart-4: 0 70% 45%;
+    --chart-5: 200 60% 45%;
+    
+    --sidebar: 200 15% 18%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 50 90% 55%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 200 15% 25%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 200 15% 35%;
+    --sidebar-ring: 50 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Space Mono", monospace;
+  }
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+/* 90s Beveled panel styles - like Windows 95 */
+.panel-raised {
+  background: hsl(var(--gray-panel));
+  border: 3px solid;
+  border-color: hsl(0 0% 95%) hsl(var(--gray-darker)) hsl(var(--gray-darker)) hsl(0 0% 95%);
+  box-shadow: 
+    inset 1px 1px 0 hsl(0 0% 100%),
+    inset -1px -1px 0 hsl(var(--gray-dark));
+}
+
+.panel-inset {
+  background: hsl(var(--gray-light));
+  border: 3px solid;
+  border-color: hsl(var(--gray-darker)) hsl(0 0% 95%) hsl(0 0% 95%) hsl(var(--gray-darker));
+  box-shadow: 
+    inset 1px 1px 3px hsl(var(--gray-dark)),
+    inset -1px -1px 0 hsl(0 0% 100%);
+}
+
+.btn-retro {
+  background: hsl(var(--gray-panel));
+  border: 3px solid;
+  border-color: hsl(0 0% 95%) hsl(var(--gray-darker)) hsl(var(--gray-darker)) hsl(0 0% 95%);
+  box-shadow: 
+    inset 1px 1px 0 hsl(0 0% 100%),
+    inset -1px -1px 0 hsl(var(--gray-dark));
+  transition: all 0.1s;
+}
+
+.btn-retro:hover {
+  background: hsl(var(--gray-light));
+}
+
+.btn-retro:active {
+  border-color: hsl(var(--gray-darker)) hsl(0 0% 95%) hsl(0 0% 95%) hsl(var(--gray-darker));
+  box-shadow: 
+    inset 1px 1px 3px hsl(var(--gray-dark)),
+    inset -1px -1px 0 hsl(0 0% 100%);
+}
+
+.btn-gold {
+  background: hsl(var(--gold-accent));
+  border: 3px solid;
+  border-color: hsl(50 90% 70%) hsl(50 90% 30%) hsl(50 90% 30%) hsl(50 90% 70%);
+  box-shadow: 
+    inset 1px 1px 0 hsl(50 90% 80%),
+    inset -1px -1px 0 hsl(50 90% 40%);
+  color: hsl(var(--retro-black));
+  font-weight: 700;
+}
+
+.btn-gold:hover {
+  background: hsl(50 90% 55%);
+}
+
+.btn-gold:active {
+  border-color: hsl(50 90% 30%) hsl(50 90% 70%) hsl(50 90% 70%) hsl(50 90% 30%);
+  box-shadow: 
+    inset 1px 1px 3px hsl(50 90% 35%),
+    inset -1px -1px 0 hsl(50 90% 75%);
+}
+
+/* Retro title bar */
+.title-bar {
+  background: linear-gradient(90deg, hsl(220 70% 35%) 0%, hsl(220 70% 55%) 100%);
+  color: white;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark .title-bar {
+  background: linear-gradient(90deg, hsl(220 50% 25%) 0%, hsl(220 50% 40%) 100%);
+}
+
+/* Pixelated text effect for headings */
+.font-pixel {
+  font-family: "VT323", monospace;
+  letter-spacing: 1px;
+}
+
+/* Scanline overlay effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* CRT screen glow */
+.crt-glow {
+  box-shadow: 
+    0 0 20px hsl(var(--teal-bg) / 0.3),
+    inset 0 0 60px hsl(var(--teal-bg) / 0.1);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Blink animation for retro feel */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
